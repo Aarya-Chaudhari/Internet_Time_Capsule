@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internet Time Capsule</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Space Mono', monospace;
+      padding-bottom: 100px;
+    }
+    .glow {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    .slide-in {
+      animation: slideIn 0.6s ease-out forwards;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-900 to-black min-h-screen text-white flex flex-col items-center px-4 py-10">
+  <h1 class="text-4xl md:text-5xl font-bold text-center mb-8 animate-pulse" data-aos="fade-down">
+    🕰️ Internet Time Capsule
+  </h1>
+
+  <!-- Capsule Form -->
+  <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-6 shadow-lg w-full max-w-2xl space-y-4 slide-in" data-aos="zoom-in">
+    <label for="message" class="block text-lg font-semibold">Message To Future Self:</label>
+    <textarea id="message" rows="6" placeholder="Dear Future Me..." class="w-full p-3 rounded-md text-black mb-2 focus:ring-4 focus:ring-indigo-400 transition"></textarea>
+
+    <label for="unlockdate" class="block text-lg font-semibold">Unlock Date:</label>
+    <input type="date" id="unlockdate" class="w-full p-3 rounded-md text-black mb-2 focus:ring-4 focus:ring-indigo-400 transition"/>
+
+    <label for="password" class="block text-lg font-semibold">Optional Password:</label>
+    <input type="password" id="password" placeholder="......" class="w-full p-3 rounded-md text-black mb-2 focus:ring-4 focus:ring-indigo-400 transition"/>
+
+    <button onclick="saveCapsule()" class="w-full bg-indigo-600 hover:bg-indigo-800 px-6 py-3 rounded-full font-semibold transition transform hover:scale-105 focus:scale-95 focus:outline-none focus:ring-4 focus:ring-indigo-300 glow">
+      💾 Save Time Capsule
+    </button>
+  </div>
+
+  <!-- Status Message -->
+  <div id="capsuleStatus" class="mt-8 text-center text-lg px-4 transition duration-500 ease-in-out" data-aos="fade-up"></div>
+
+  <!-- View Capsules Button -->
+  <div class="fixed bottom-4 right-4 animate-bounce">
+    <a href="view.html" class="bg-pink-600 hover:bg-pink-800 text-white px-6 py-3 rounded-full font-semibold transition transform hover:scale-110 shadow-lg">
+      🔍 View Saved Capsules
+    </a>
+  </div>
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <!-- Your Main JS -->
+  <script src="main.js"></script>
+</body>
+</html>
